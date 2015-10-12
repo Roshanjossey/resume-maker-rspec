@@ -2,7 +2,7 @@ require 'rspec'
 require_relative '../user.rb'
 
 describe User do
-    before :all do
+    before :context do
         @user = User.new
     end
     describe '#initialize' do
