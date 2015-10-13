@@ -1,4 +1,8 @@
 class User
-    def initialize()
+
+    attr_accessor :details
+
+    def initialize(data)
+        @details = data
     end
 end
