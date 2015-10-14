@@ -1,11 +1,22 @@
 require_relative 'export'
+require_relative 'user'
+require 'pry'
 
-
-puts 'Enter format to be converted'
-format = gets
-if format == "csv\n"
-    file = Export_csv.new
-elsif format == "html\n"
-    file = Export_html.new
+user_details = []
+puts "Enter user details, done to stop"
+while true do
+    detail = gets.chomp
+    if detail == "done"
+        break
+    end
+    user_details << detail
 end
-file.export
+puts user_details
+user = User.new user_details
+resume_details = user.details
+
+puts 'Enter format to be exported'
+format = gets.chomp
+resume = Export.new resume_details
+resume.loader(format)
+resume.export
