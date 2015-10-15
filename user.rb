@@ -2,7 +2,10 @@ class User
 
     attr_accessor :details
 
-    def initialize(data)
-        @details = data
+    def user_data_fields
+        ['Name', 'Age', 'Profession']
+    end
+    def initialize()
+        @details = {}
     end
 end

@@ -1,11 +1,9 @@
-require 'pry'
 module Pdf
     require "prawn"
-    def export
+    def export(data)
         pdf = Prawn::Document.new
-        @data.each { |field| pdf.text "#{field}\n"}
-        binding.pry
-        pdf.render_file "#{@data.first}.pdf"
+        data.each { |field, field_value| pdf.text "#{field} : #{field_value}\n"}
+        pdf.render_file "#{data.values.first}.pdf"
 
     end
 end
