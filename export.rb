@@ -9,5 +9,7 @@ class ResumeGenerator
     def provide_plugin_names
         plugins = Dir.entries('plugins/').select { |plugin| !File.directory? plugin}
         plugins.collect { |plugin| plugin.split('.').first}
+        plugins.each { |plugin| require_relative 'plugins/' + plugin }
+        plugins.collect { |plugin| Object.const_get(plugin.split('.').first.capitalize).provide_info_of_module}
     end
 end

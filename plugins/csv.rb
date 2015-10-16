@@ -6,5 +6,8 @@ module Csv
             csv << data.values
         end
     end
+    def self.provide_info_of_module 
+        "CSV test"
+    end
 end
 

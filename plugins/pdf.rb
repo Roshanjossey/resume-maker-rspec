@@ -6,5 +6,8 @@ module Pdf
         pdf.render_file "#{data.values.first}.pdf"
 
     end
+    def self.provide_info_of_module 
+        "PDF"
+    end
 end
 
